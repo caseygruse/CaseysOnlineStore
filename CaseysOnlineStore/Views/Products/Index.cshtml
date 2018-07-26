@@ -1,10 +1,42 @@
-﻿
+﻿@model IEnumerable<CaseysOnlineStore.Models.Product>
+@* model binds to the products list passed into the view.*@
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Product List";
 }
 
-<h2>Nothing to see Yet</h2>
+<h2>Index</h2>
 
-@Html.ActionLink("Create Product", "Create")
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+			@*Displays column name*@
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
 
+@foreach (var item in Model) {
+    <tr>
+        <td>
+			@*Displays actual data*@
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+			@*model binded Price for a product that is displayed*@
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
+        </td>
+    </tr>
+}
 
+</table>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace CaseysOnlineStore.Models
@@ -30,12 +31,26 @@ namespace CaseysOnlineStore.Models
 
 		}
 
+		public static List<Product> GetProductByPage(int page, byte pageSize)
+		{
+			//database instance
+			CommereceDBContext context = new CommereceDBContext();
+			List<Product> prodList = context
+									.Products
+									.Take(pageSize)        // get all products from context but take a PageSize amount only
+									.OrderBy(p => p.Name)
+									.Skip((page - 1) * pageSize)     // skips the amount of PageSize allowed by what page you are on.
+									.ToList();  // gets all products and turns it into a list.
+
+			return prodList;
+		}
+
 		// step 1. create a instance of the db
 		// step 2. Add a pending object
 		// step 3. execute the add using saveChanges();
 
 
-		
+
 		/// <summary>
 		/// adds a product to the database using entity syntax.           //////////////////// REFERENCE
 		/// </summary>
@@ -53,6 +68,27 @@ namespace CaseysOnlineStore.Models
 			// 3.
 			//Execute pending insert    //the pending insert is what was done above with context.Products.Add(p)
 			context.SaveChanges();
+		}
+
+		public static void Update(Product p)
+		{
+			var context = new CommereceDBContext();
+
+			//Tell EF this product has only been modified
+			//It's already in the database
+			context.Entry(p).State = EntityState.Modified;
+			//Send Update query to the DB
+			context.SaveChanges();
+		}
+
+		public static Product GetProductById(int id)
+		{
+			CommereceDBContext context = new CommereceDBContext();
+			//finds a single product by its id number
+			Product p = context.Products.Find(id);
+			return p;
+			
+
 		}
 	}
 }
