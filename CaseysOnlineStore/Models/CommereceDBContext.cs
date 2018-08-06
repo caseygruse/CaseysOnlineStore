@@ -22,7 +22,7 @@ namespace CaseysOnlineStore.Models
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<Product> Products { get; set; }                                                ////////////////////////////////////////this is where you add product class into db
-                                                                                                                                                   //and calls the table products
+        public virtual DbSet<Member> Members { get; set; }                                                                                                                                          //and calls the table products
 
                                                                                                                 /// Code first migration commands
                                                                                                                 /// Enable-migrations   - (run once per project to enable code first migrations

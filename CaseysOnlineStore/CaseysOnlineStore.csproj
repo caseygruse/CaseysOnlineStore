@@ -158,6 +158,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -165,10 +166,16 @@
     <Compile Include="Migrations\201807191751462_Product.Designer.cs">
       <DependentUpon>201807191751462_Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808060022035_AddedMembers.cs" />
+    <Compile Include="Migrations\201808060022035_AddedMembers.Designer.cs">
+      <DependentUpon>201808060022035_AddedMembers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AddMemberDB.cs" />
     <Compile Include="Models\CommereceDBContext.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDB.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -213,6 +220,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -233,6 +241,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807191751462_Product.resx">
       <DependentUpon>201807191751462_Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808060022035_AddedMembers.resx">
+      <DependentUpon>201808060022035_AddedMembers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
