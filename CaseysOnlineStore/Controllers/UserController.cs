@@ -41,7 +41,31 @@ namespace CaseysOnlineStore.Controllers
 
 			return View(reg);
 		}
+		[HttpGet]
+		public ActionResult Login()
+		{
+			return View();
+		}
+		[HttpPost]
+		public ActionResult Login(LoginViewModel login)
+		{
+			if (ModelState.IsValid)
+			{
+				//query database and check if credentials match // user name password
+				if (AddMemberDB.UserExists(login))
+				{
+					//if it is then log user in somehow???
 
-		
+					//send back to homepage
+					return RedirectToAction("Index", "Home");
+				}
+
+				//Add custom error if they dont exist. "No Match"
+				ModelState.AddModelError("Invalid Credentials", "Username and password combonation not found");
+
+
+			}
+			return View(login);
+		}
 	}
 }
