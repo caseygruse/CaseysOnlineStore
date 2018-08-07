@@ -55,7 +55,10 @@ namespace CaseysOnlineStore.Controllers
 				if (AddMemberDB.UserExists(login))
 				{
 					//if it is then log user in somehow???
-
+					//Creates a session 
+					//the [index] is just a name for the right side of = sign
+					Session["Username"] = login.Username;
+					Session["Role"] = "Customer";
 					//send back to homepage
 					return RedirectToAction("Index", "Home");
 				}
