@@ -31,6 +31,15 @@ namespace CaseysOnlineStore.Models
 
 		}
 
+		internal static int GetTotalNumProducts()
+		{
+			var context = new CommereceDBContext();
+			//gets the amount of products in the DB. it uses count because its a query.
+			return context.Products.Count();
+			
+			
+		}
+
 		public static List<Product> GetProductByPage(int page, byte pageSize)
 		{
 			//database instance
@@ -89,6 +98,20 @@ namespace CaseysOnlineStore.Models
 			return p;
 			
 
+		}
+
+
+		//missisng something
+
+		public static void DeleteProduct(int id)
+		{
+			var context = new CommereceDBContext();
+			//makes Ef recognize that p came from the DB.
+			Product p = context.Products.Find(id);
+			//marks p for deletion
+			context.Products.Remove(p);
+			//sends the above query to the DB
+			context.SaveChanges();
 		}
 	}
 }

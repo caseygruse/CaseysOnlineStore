@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CaseysOnlineStore.Models.Product>
-@* model binds to the products list passed into the view.*@
+
 @{
-    ViewBag.Title = "Product List";
+    ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
@@ -15,7 +15,6 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-			@*Displays column name*@
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th></th>
@@ -24,11 +23,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-			@*Displays actual data*@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-			@*model binded Price for a product that is displayed*@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
@@ -40,27 +37,3 @@
 }
 
 </table>
-
-@* Print out page numbers*@
-
-<ul class="pagination">
-	@for (int i = 1; i <= ViewBag.MaxPage; i++)
-	{
-		@* Desired route (url)  -     Products/Index/i *@
-		if (i == ViewBag.CurrentPage)
-		{
-			<li class="active">
-				@Html.ActionLink($"page {i}", "Index", new { @id = i })
-			</li>
-
-		}
-		else
-		{
-			<li>
-		
-				@*link that goes to product page with the id of 1*@
-				@Html.ActionLink($"page {i}", "Index", new { @id = i })
-			</li>
-		}
-	}
-</ul>
