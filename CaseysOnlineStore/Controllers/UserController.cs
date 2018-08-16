@@ -15,6 +15,7 @@ namespace CaseysOnlineStore.Controllers
         {
             return View();
         }
+
 		[HttpPost]
 		public ActionResult Register(RegistrationViewModel reg)
 		{
@@ -69,6 +70,11 @@ namespace CaseysOnlineStore.Controllers
 
 			}
 			return View(login);
+		}
+		public ActionResult LogOut()
+		{
+			SessionHelper.LogUserOut();
+			return RedirectToAction("Index", "Home");
 		}
 	}
 }

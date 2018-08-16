@@ -19,14 +19,14 @@
                 @Html.ActionLink("Casey's eCommerece", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+				<ul class="nav navbar-nav">
+					<li>@Html.ActionLink("Home", "Index", "Home")</li>
+					@*<li>@Html.ActionLink("About", "About", "Home")</li>
+		<li>@Html.ActionLink("Contact", "Contact", "Home")</li> *@
 					<li>@Html.ActionLink("View Products", "Index", "Products")</li>]
 					<!--check if user is logged in-->
 					@*if you are not logged in and your session is null you will have the option to log in
-						else{ it will show log out link.*@
+		else{ it will show log out link.*@
 					@if (Session["Username"] == null)
 					{
 						<li>@Html.ActionLink("Register", "Register", "User")</li>
@@ -35,8 +35,15 @@
 					else
 					{
 						<li>@Html.ActionLink("Log Out", "LogOut", "User")</li>
+						<li>
+							<a class="btn btn-default" href="~/Cart/ViewCart">
+								<span class="glyphicon glyphicon-shopping-cart">
+									<span class="badge">@ShoppingCart.GetTotalItems()</span>
+								</span>
+							</a>
+						</li>
 					}
-                </ul>
+				</ul>
             </div>
         </div>
     </div>

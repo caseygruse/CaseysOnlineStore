@@ -160,6 +160,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsAutoController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\SessionHelper.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -172,12 +173,17 @@
     <Compile Include="Migrations\201808060022035_AddedMembers.Designer.cs">
       <DependentUpon>201808060022035_AddedMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808161713522_ProductQuantityDescription.cs" />
+    <Compile Include="Migrations\201808161713522_ProductQuantityDescription.Designer.cs">
+      <DependentUpon>201808161713522_ProductQuantityDescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AddMemberDB.cs" />
     <Compile Include="Models\CommereceDBContext.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDB.cs" />
     <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808060022035_AddedMembers.resx">
       <DependentUpon>201808060022035_AddedMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161713522_ProductQuantityDescription.resx">
+      <DependentUpon>201808161713522_ProductQuantityDescription.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

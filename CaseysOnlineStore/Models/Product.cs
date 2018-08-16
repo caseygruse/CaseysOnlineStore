@@ -20,6 +20,8 @@ namespace CaseysOnlineStore.Models
         [Range(0, 100000)]
         [DataType(DataType.Currency)]
         public double Price { get; set; }
+		public short Quanity { get; set; }
 
-    }
+		public string Description { get; set; }
+	}
 }

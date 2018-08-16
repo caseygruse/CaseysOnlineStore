@@ -14,7 +14,8 @@ namespace CaseysOnlineStore.Controllers
 		// ? means it is nullable.             //making a page id with int perameter.
 		[HttpGet]
         public ActionResult Index(int? id)
-        {
+        {	
+
 			int page = 1;
 			//has value checks for null
 			if (id.HasValue)
