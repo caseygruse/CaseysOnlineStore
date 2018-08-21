@@ -79,6 +79,10 @@ namespace CaseysOnlineStore.Controllers
 		public ActionResult Edit(int id)
 		{
 			Product prod = ProductDB.GetProductById(id);  // prod will equal 1 product that was found using its id.
+			if(prod == null)
+			{
+				return RedirectToAction("NotFound", "Error");
+			}
 			return View(prod);
 		}
 
@@ -108,6 +112,12 @@ namespace CaseysOnlineStore.Controllers
 		public ActionResult Details(int id)
 		{
 			Product p = ProductDB.GetProductById(id);
+			if(p == null)
+			{
+				//if they go to a item that does not exist I throw a 404 which brings the user
+				//to my not found view.
+				return RedirectToAction("NotFound", "Error");
+			}
 			return View(p);
 		}
     }

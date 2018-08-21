@@ -7,7 +7,8 @@ namespace CaseysOnlineStore
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+			//Default error handler in the mvc template
+            //filters.Add(new HandleErrorAttribute());
         }
     }
 }
